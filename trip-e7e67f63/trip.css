@@ -1,0 +1,157 @@
+/* ===== 沖縄旅行しおり 共通スタイル ===== */
+:root {
+    --teal: #0a9396;
+    --teal-dark: #086d6f;
+    --coral: #ee9b00;
+    --sand: #fdfaf3;
+    --card: #ffffff;
+    --ink: #243239;
+    --muted: #6b7a82;
+    --line: #e8e0d0;
+    --sea: linear-gradient(135deg, #0a9396 0%, #41b8a6 55%, #94d2bd 100%);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    margin: 0;
+    font-family: 'Muli', -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+    color: var(--ink);
+    background: var(--sand);
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+}
+a { color: var(--teal-dark); }
+
+/* --- ナビ --- */
+.nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(255,255,255,.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+    display: flex; align-items: center; gap: 4px;
+    padding: 10px 14px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+.nav .home { font-weight: 800; color: var(--teal-dark); text-decoration: none; margin-right: 8px; white-space: nowrap; }
+.nav a.link {
+    color: var(--muted); text-decoration: none; font-size: .9rem;
+    padding: 6px 12px; border-radius: 999px; white-space: nowrap;
+}
+.nav a.link:hover { background: #eef7f5; color: var(--teal-dark); }
+.nav a.link.active { background: var(--teal); color: #fff; }
+
+/* --- ヒーロー --- */
+.hero {
+    background: var(--sea);
+    color: #fff;
+    padding: 56px 22px 50px;
+    text-align: center;
+    position: relative; overflow: hidden;
+}
+.hero::after {
+    content: "🌺"; position: absolute; right: -10px; bottom: -16px;
+    font-size: 8rem; opacity: .12; transform: rotate(-12deg);
+}
+.hero .eyebrow { letter-spacing: .35em; font-size: .72rem; text-transform: uppercase; opacity: .9; }
+.hero h1 { margin: 10px 0 6px; font-size: 2.3rem; font-weight: 800; }
+.hero .sub { font-size: 1.02rem; opacity: .96; }
+.hero .pills { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.hero .pill {
+    background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.35);
+    padding: 5px 14px; border-radius: 999px; font-size: .85rem; backdrop-filter: blur(2px);
+}
+
+/* --- レイアウト --- */
+.wrap { max-width: 780px; margin: 0 auto; padding: 30px 20px 70px; }
+.page-head { display: flex; align-items: center; gap: 12px; margin: 4px 0 22px; }
+.page-head .ic { width: 42px; height: 42px; display: grid; place-items: center; background: var(--teal); color: #fff; border-radius: 12px; font-size: 1.1rem; flex-shrink: 0; }
+.page-head h1 { margin: 0; font-size: 1.5rem; font-weight: 800; }
+.page-head p { margin: 2px 0 0; color: var(--muted); font-size: .88rem; }
+
+.section-label { font-size: .78rem; letter-spacing: .16em; color: var(--coral); text-transform: uppercase; font-weight: 800; margin: 34px 0 12px; }
+
+/* --- カード --- */
+.card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+    padding: 18px 20px; box-shadow: 0 1px 2px rgba(0,0,0,.03);
+}
+.card + .card { margin-top: 14px; }
+.menu-grid { display: grid; gap: 14px; }
+.menu-card {
+    display: flex; align-items: center; gap: 16px;
+    background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+    padding: 18px 20px; text-decoration: none; color: inherit;
+    transition: transform .12s ease, box-shadow .12s ease;
+}
+.menu-card:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(10,147,150,.16); }
+.menu-card .ic { flex-shrink: 0; width: 50px; height: 50px; display: grid; place-items: center; background: #eef7f5; color: var(--teal); border-radius: 14px; font-size: 1.4rem; }
+.menu-card h2 { margin: 0; font-size: 1.12rem; }
+.menu-card p { margin: 3px 0 0; color: var(--muted); font-size: .88rem; }
+.menu-card .arrow { margin-left: auto; color: var(--teal); }
+
+/* --- callout --- */
+.callout {
+    background: #eef7f5; border: 1px solid #bfe3dc; border-left: 5px solid var(--teal);
+    border-radius: 12px; padding: 16px 18px;
+}
+.callout.coral { background: #fff6e6; border-color: #f3d6a0; border-left-color: var(--coral); }
+.callout h3 { margin: 0 0 6px; font-size: 1rem; }
+.callout p { margin: 0; font-size: .92rem; }
+
+/* --- リスト --- */
+.checklist { list-style: none; margin: 0; padding: 0; }
+.checklist li { display: flex; gap: 10px; padding: 7px 0; align-items: flex-start; }
+.checklist li .n { flex-shrink: 0; width: 22px; height: 22px; display: grid; place-items: center; background: var(--teal); color: #fff; border-radius: 50%; font-size: .72rem; font-weight: 800; margin-top: 3px; }
+.checklist li i.fa-check { color: var(--teal); margin-top: 5px; }
+
+.tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 8px; }
+.tag { background: #eef7f5; color: var(--teal-dark); border-radius: 999px; padding: 3px 11px; font-size: .8rem; }
+
+/* --- 行程タイムライン --- */
+.day { margin-bottom: 30px; }
+.day-head { display: flex; align-items: baseline; gap: 12px; border-bottom: 2px solid var(--line); padding-bottom: 8px; margin-bottom: 16px; }
+.day-head .badge { background: var(--teal); color: #fff; font-weight: 800; padding: 3px 14px; border-radius: 999px; font-size: .85rem; }
+.day-head .date { color: var(--muted); font-size: .9rem; }
+.day-head .tagline { margin-left: auto; color: var(--coral); font-weight: 800; font-size: .82rem; }
+.timeline { list-style: none; margin: 0; padding: 0; position: relative; }
+.timeline::before { content: ""; position: absolute; left: 61px; top: 8px; bottom: 8px; width: 2px; background: var(--line); }
+.item { display: flex; gap: 16px; padding: 8px 0; }
+.item .time { width: 48px; flex-shrink: 0; text-align: right; font-weight: 800; color: var(--teal-dark); font-size: .88rem; padding-top: 12px; }
+.item .dot { position: relative; flex-shrink: 0; width: 14px; }
+.item .dot::before { content: ""; position: absolute; left: 0; top: 16px; width: 12px; height: 12px; border-radius: 50%; background: #fff; border: 3px solid var(--teal); }
+.item .body { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 11px 16px; flex-grow: 1; }
+.item .body h3 { margin: 0; font-size: 1rem; }
+.item .body p { margin: 4px 0 0; color: var(--muted); font-size: .87rem; }
+.item .emoji { font-size: 1.05rem; }
+
+/* Day2 候補 */
+.options { display: grid; gap: 14px; margin-top: 6px; }
+.opt { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--card); }
+.opt .opt-head { display: flex; align-items: center; gap: 10px; padding: 12px 16px; background: #eef7f5; }
+.opt .opt-head .k { background: var(--teal); color: #fff; font-weight: 800; border-radius: 8px; padding: 1px 10px; font-size: .82rem; }
+.opt .opt-head h3 { margin: 0; font-size: 1rem; }
+.opt .opt-body { padding: 12px 16px; }
+.opt .opt-body ul { margin: 0; padding-left: 18px; }
+.opt .opt-body li { font-size: .9rem; color: var(--ink); }
+
+/* 比較テーブル */
+.compare { width: 100%; border-collapse: collapse; font-size: .9rem; }
+.compare th, .compare td { text-align: left; padding: 11px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.compare th { color: var(--muted); font-weight: 800; width: 34%; }
+.compare tr:last-child td, .compare tr:last-child th { border-bottom: 0; }
+
+/* リンク集 */
+.links { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.links a { display: flex; align-items: center; gap: 14px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; text-decoration: none; color: inherit; transition: transform .12s, box-shadow .12s; }
+.links a:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(10,147,150,.12); }
+.links .ic { color: var(--teal); width: 22px; text-align: center; flex-shrink: 0; }
+.links .txt h3 { margin: 0; font-size: .98rem; }
+.links .txt p { margin: 2px 0 0; color: var(--muted); font-size: .83rem; word-break: break-all; }
+.links .out { margin-left: auto; color: #c7d3cf; }
+.embed { margin-top: 14px; border-radius: 12px; overflow: hidden; border: 1px solid var(--line); }
+.embed iframe { display: block; width: 100%; height: 320px; border: 0; }
+
+.hint { font-size: .82rem; color: var(--muted); background: #fff6e6; border: 1px dashed #e6c98c; border-radius: 10px; padding: 12px 14px; margin-bottom: 22px; }
+.lock-note { margin-top: 30px; font-size: .82rem; color: var(--muted); text-align: center; }
+.footer { text-align: center; color: var(--muted); font-size: .8rem; padding: 24px; }
